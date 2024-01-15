@@ -3,14 +3,12 @@ import os
 import time
 # /tmp/servo_control is a FIFO that is read to listen to what's being output for the servo to move to that angle
 
-
 control_path = '/tmp/servo_control'
 
 PORT = pyfirmata2.Arduino.AUTODETECT
 
 board = pyfirmata2.Arduino(PORT)
 servo_5 = board.get_pin('d:5:s')
-
 
 
 try:
