@@ -22,8 +22,8 @@
   Last updated January 9, 2019 Alan Yorinks
 
   Matt Tracy - added Seeed Xaio M0 to boards.h from https://github.com/firmata/arduino/issues/475
-  from solution provided by user vickkky
-  Use this boards.h and replace the old in FirmataExpress sketch
+  from solution provided by user vicckkky
+  Use this boards.h and replace the old in FirmataExpress sketch before compiling
 
 */
 

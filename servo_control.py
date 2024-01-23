@@ -15,14 +15,14 @@ try:
     while True:
         with open(control_path, 'r') as file:
             for line in file:
-                try: 
+                try:
                     angle = int(line)
                     print(f"Yes Captain! Moving to {angle} Degrees!")
                     servo_5.write(angle)
                     time.sleep(0.001)
                 except ValueError:
                     print("Invalid Degrees Captain!")
-                    time.sleep(0.001)
+                    time.sleep(1)
 except KeyboardInterrupt:
     print("Aborting Captain. Exiting Program!.")
     board.exit()
