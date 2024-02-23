@@ -18,6 +18,7 @@ while True:
             x = 45 # offset the x = 45 to match lidar
             try:
                 angle = int(float(line)*57.2-x)
+                print(angle)
                 if 0 <= angle <= 180:
                     print(f"Yes Captain! Moving to {angle+x} Degrees!")
                     servo_5.write(str(angle))
