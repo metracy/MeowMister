@@ -45,19 +45,23 @@ def write_to_fifo(angle):
 # Lidar Distance Calculator
 def radius_calc(angle):
     '''  Since lidar radius is tested in a rectangular hallway, radius from center of lidar is a function of the degrees
-    to calculate y, using top distance of 14.3,   R distance is R(for 90 to 128 degrees) = 4.3/sin(angle)
-    R(128+ to 180) = 11/cos(angle)
+    to calculate y, using top distance of 14.3,   R distance is R(for 90 to 128 degrees) = 14.3/sin(angle)
+    R(128+ to 180) = 10.3/cos(angle)
     '''
-    if 90 <= angle_degrees <= 128:
-        angle_radians = angle
-        R = 14.3 / math.cos(angle)
+    if 92 <= math.degrees(angle) <= 128:
+        R = 14.3 / math.sin(angle)
+        return R
+    elif 128 < math.degrees(angle) <= 177:
+        R = -10.3 / math.cos(angle)
         return R
     else:
-        angle_radians = math.radians(angle_degrees)
-        R = 11 / math.sin(angle)
+        R = 3
         return R
 
-
+def coord_calc(angle2, distance):
+    Y = distance * math.sin(angle2)
+    X = -distance * math.cos(angle2)
+    return X, Y
 
         
 while True:
@@ -80,32 +84,16 @@ while True:
         # Highlight points based on conditions
         for angle, distance in zip(rotated_angles, distances):
             # Highlight points between 92 and 100 degrees
-            if 92 * math.pi / 180 <= angle <= 100 * math.pi / 180 and distance <= 14.5:
+            if 92 <= math.degrees(angle) <= 178 and distance >= min_distance and distance <= radius_calc(angle):
                 ax.scatter(angle, distance, s=50, facecolors='none', edgecolors='blue', marker='s')
                 angle2 = angle
-            # Different max distances for degrees that range between
-            elif 100 * math.pi / 180 < angle <= 110 * math.pi / 180 and min_distance <= distance <= 15:
-                ax.scatter(angle, distance, s=50, facecolors='none', edgecolors='blue', marker='s')
-                angle2 = angle
-            elif 110 * math.pi / 180 < angle <= 115 * math.pi / 180 and min_distance <= distance <= 15.5:
-                ax.scatter(angle, distance, s=50, facecolors='none', edgecolors='blue', marker='s')
-                angle2 = angle
-            elif 115 * math.pi / 180 < angle <= 120 * math.pi / 180 and min_distance <= distance <= 16:
-                ax.scatter(angle, distance, s=50, facecolors='none', edgecolors='blue', marker='s')
-                angle2 = angle
-            elif 120 * math.pi / 180 < angle <= 125 * math.pi / 180 and min_distance <= distance <= 16.7:
-                ax.scatter(angle, distance, s=50, facecolors='none', edgecolors='blue', marker='s')
-                angle2 = angle
-            elif 125 * math.pi / 180 < angle <= 130 * math.pi / 180 and min_distance <= distance <= 17.9:
-                ax.scatter(angle, distance, s=50, facecolors='none', edgecolors='blue', marker='s')
-                angle2 = angle
-            elif 130 * math.pi / 180 < angle <= 135 * math.pi / 180 and min_distance <= distance <= 16.7:
-                ax.scatter(angle, distance, s=50, facecolors='none', edgecolors='blue', marker='s')
-                angle2 = angle
-            elif 135 * math.pi / 180 < angle <= 180 * math.pi / 180 and min_distance <= distance <= max_distance:
-                ax.scatter(angle, distance, s=50, facecolors='none', edgecolors='blue', marker='s')
-                angle2 = angle
-        angle_to_display = angle2*57.2        
+                X, Y = coord_calc(angle2, distance)
+        try:
+            ax.text(6/5*math.pi, radius_for_text-1, f'Coordinates:({X:.1f},{Y:.1f})', 
+                horizontalalignment='right', verticalalignment='center', fontsize=12, color='blue')
+        except:
+            pass
+        angle_to_display = math.degrees(angle2)        
         ax.text(3/4*math.pi, radius_for_text, f'{angle_to_display:.1f}°', 
         horizontalalignment='center', verticalalignment='center', fontsize=12, color='blue')
         write_thread = threading.Thread(target=write_to_fifo, args=(angle2,))
