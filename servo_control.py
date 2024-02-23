@@ -11,18 +11,21 @@ board = pyfirmata2.Arduino(PORT)
 servo_5 = board.get_pin('d:5:s')
 
 
-try:
-    while True:
-        with open(control_path, 'r') as file:
-            for line in file:
-                try:
-                    angle = int(line)
-                    print(f"Yes Captain! Moving to {angle} Degrees!")
-                    servo_5.write(angle)
-                    time.sleep(0.001)
-                except ValueError:
-                    print("Invalid Degrees Captain!")
-                    time.sleep(1)
-except KeyboardInterrupt:
-    print("Aborting Captain. Exiting Program!.")
-    board.exit()
+while True:
+    with open(control_path, 'r') as file:
+        for line in file:
+            print('restarting try loop')
+            x = 45 # offset the x = 45 to match lidar
+            try:
+                angle = int(float(line)*57.2-x)
+                print(angle)
+                if 0 <= angle <= 180:
+                    print(f"Yes Captain! Moving to {angle+x} Degrees!")
+                    servo_5.write(str(angle))
+                time.sleep(0.1)
+            except ValueError:
+                print("Invalid Degrees Captain!")
+                time.sleep(0.5)
+            except KeyboardInterrupt:
+                print("Aborting Captain. Exiting Program!.")
+                board.exit()
