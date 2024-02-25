@@ -1,7 +1,7 @@
 # MeowMister
  
 MeowMister is a program to control a turret to focus on an object if it meets the criteria for distance from source of lidar. It utilizes pyfirmata2, a FirmataExpress sketch ( and opencv to control a servo to rotate the turret).  I am using FirmataExpress module that includes the boards.h that adds support for the Seeed XAIO m0 board. Now using small lidar device for controlling direction of turret.
-![readme_1](https://github.com/metracy/MeowMister/assets/12073647/517c9536-e9fb-42c1-ae46-a23bf0a16c84)
+![animated](https://github.com/metracy/MeowMister/assets/12073647/aa362e29-e5b7-47d3-bacd-be8ba3df3c56)
 
 02/22/2024
 Added old open cv tracking servo, not using it currently. Am using LD19 module with https://github.com/henjin0/LIDAR_LD06_python_loder/blob/main/README_en.md lidar calculator for python. Adapted it to support displaying lidar set in the bottom right
