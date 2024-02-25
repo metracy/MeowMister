@@ -33,6 +33,7 @@ angle_in_radians = math.radians(angle_to_display)
 radius_for_text = 3.5
 global angle2
 angle2 = angle
+
 # Function to write to FIFO in a separate thread
 def write_to_fifo(angle):
     try:
@@ -42,7 +43,7 @@ def write_to_fifo(angle):
     except Exception as e:
         print(f"Error writing to FIFO: {e}")
 
-# Lidar Distance Calculator
+b,nnnnnnnnnnnnnn# Lidar Distance Calculator
 def radius_calc(angle):
     '''  Since lidar radius is tested in a rectangular hallway, radius from center of lidar is a function of the degrees
     to calculate y, using top distance of 14.3,   R distance is R(for 90 to 128 degrees) = 14.3/sin(angle)
