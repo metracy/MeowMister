@@ -8,9 +8,9 @@ MeowMister is a program to control a turret to focus on an object if it meets th
 ![3dPrint](https://github.com/metracy/MeowMister/assets/12073647/ad61f396-daed-49fa-8947-06ce98be9814)
 
 
-My cat is not pleased with this device.
 ![unhappy_cat](https://github.com/metracy/MeowMister/assets/12073647/886b0888-1341-46b1-84da-2097e17319d2)
 
+My cat is not pleased with this device.
 
 02/25/2024
 Line from bottom of lidar now blocks the cats access to door - No longer meows because it knows it will get shot with water if it crosses the line and meows repeatedly.
