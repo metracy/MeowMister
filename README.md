@@ -7,10 +7,9 @@ MeowMister is a program to control a turret to focus on an object if it meets th
 1/2" Nozzle and 1/4" tubing line feeds through printed Boxhole.stl
 ![3dPrint](https://github.com/metracy/MeowMister/assets/12073647/ad61f396-daed-49fa-8947-06ce98be9814)
 
-![linedection1](https://github.com/metracy/MeowMister/assets/12073647/aa591002-b9cc-4e0b-ab52-f1eb85b4a12d)
-My cat is not pleased with this device.
 
-![linedection2](https://github.com/metracy/MeowMister/assets/12073647/f2e8e56a-d0d5-4852-9a2c-f56feb6bc52c)
+My cat is not pleased with this device.
+![unhappy_cat](https://github.com/metracy/MeowMister/assets/12073647/886b0888-1341-46b1-84da-2097e17319d2)
 
 
 02/25/2024
