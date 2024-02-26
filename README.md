@@ -22,6 +22,7 @@ Seeeduino XAIO pinout
 
 
 My cat is not pleased with this device.
+
 ![unhappy_cat](https://github.com/metracy/MeowMister/assets/12073647/886b0888-1341-46b1-84da-2097e17319d2)
 
 
