@@ -2,27 +2,28 @@
  
 MeowMister is a program to control a turret to focus on an object if it meets the criteria for distance from source of lidar. It utilizes pyfirmata2, a FirmataExpress sketch ( and opencv to control a servo to rotate the turret).  I am using the FirmataExpress module that includes the boards.h that adds support for the Seeed XAIO m0 board. Now using a small lidar device (LD19) for controlling direction of turret. Will only fire once while I continue to prototype it.
 
+Lidar Plot running main2.py
 ![animated](https://github.com/metracy/MeowMister/assets/12073647/aa362e29-e5b7-47d3-bacd-be8ba3df3c56)
 
-Lidar Plot running main2.py
-
-![circuit_diagram](https://github.com/metracy/MeowMister/assets/12073647/4ced766c-6f89-4e9b-967f-524543f69b9a)
 
 Circuit arrangement.
+![circuit_diagram](https://github.com/metracy/MeowMister/assets/12073647/4ced766c-6f89-4e9b-967f-524543f69b9a)
 
 
-![Seeeduino-XIAO-pinout-1](https://github.com/metracy/MeowMister/assets/12073647/bf2b7dc1-ec3a-4821-946b-a08e1268069b)
 
 Seeeduino XAIO pinout
+![Seeeduino-XIAO-pinout-1](https://github.com/metracy/MeowMister/assets/12073647/bf2b7dc1-ec3a-4821-946b-a08e1268069b)
 
 
-![3dPrint](https://github.com/metracy/MeowMister/assets/12073647/ad61f396-daed-49fa-8947-06ce98be9814)
 
 1/2" Nozzle and 1/4" tubing line feeds through printed Boxhole.stl
+![3dPrint](https://github.com/metracy/MeowMister/assets/12073647/ad61f396-daed-49fa-8947-06ce98be9814)
 
 
-![unhappy_cat](https://github.com/metracy/MeowMister/assets/12073647/886b0888-1341-46b1-84da-2097e17319d2)
+
 My cat is not pleased with this device.
+![unhappy_cat](https://github.com/metracy/MeowMister/assets/12073647/886b0888-1341-46b1-84da-2097e17319d2)
+
 
 02/26/2024
 Cleaned up the readme file. Added XAIO pinout and wiring arrangement.
