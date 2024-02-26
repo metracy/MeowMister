@@ -4,10 +4,14 @@ MeowMister is a program to control a turret to focus on an object if it meets th
 
 ![animated](https://github.com/metracy/MeowMister/assets/12073647/aa362e29-e5b7-47d3-bacd-be8ba3df3c56)
 
+Lidar Plot running main2.py
+
 ![circuit_diagram](https://github.com/metracy/MeowMister/assets/12073647/4ced766c-6f89-4e9b-967f-524543f69b9a)
+
 Circuit arrangement.
 
 ![Seeeduino-XIAO-pinout-1](https://github.com/metracy/MeowMister/assets/12073647/bf2b7dc1-ec3a-4821-946b-a08e1268069b)
+
 Seeeduino XAIO pinout
 
 ![3dPrint](https://github.com/metracy/MeowMister/assets/12073647/ad61f396-daed-49fa-8947-06ce98be9814)
