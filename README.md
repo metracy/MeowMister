@@ -10,11 +10,14 @@ Lidar Plot running main2.py
 
 Circuit arrangement.
 
+
 ![Seeeduino-XIAO-pinout-1](https://github.com/metracy/MeowMister/assets/12073647/bf2b7dc1-ec3a-4821-946b-a08e1268069b)
 
 Seeeduino XAIO pinout
 
+
 ![3dPrint](https://github.com/metracy/MeowMister/assets/12073647/ad61f396-daed-49fa-8947-06ce98be9814)
+
 1/2" Nozzle and 1/4" tubing line feeds through printed Boxhole.stl
 
 
