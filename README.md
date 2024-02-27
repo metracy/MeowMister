@@ -5,6 +5,8 @@ MeowMister is a program to control a turret to focus on an object if it meets th
 Lidar Plot running main2.py
 ![animated](https://github.com/metracy/MeowMister/assets/12073647/aa362e29-e5b7-47d3-bacd-be8ba3df3c56)
 
+Water Turret
+![turret](https://github.com/metracy/MeowMister/assets/12073647/8b430e88-5582-4548-a120-949d7dcd96b8)
 
 Circuit arrangement.
 ![circuit_diagram](https://github.com/metracy/MeowMister/assets/12073647/4ced766c-6f89-4e9b-967f-524543f69b9a)
@@ -22,8 +24,8 @@ Seeeduino XAIO pinout
 
 
 My cat is not pleased with this device.
-
-![unhappy_cat](https://github.com/metracy/MeowMister/assets/12073647/886b0888-1341-46b1-84da-2097e17319d2)
+![cat2](https://github.com/metracy/MeowMister/assets/12073647/ec7ad270-a8b6-4554-b495-eb9b5c591b00)
+![cat3](https://github.com/metracy/MeowMister/assets/12073647/b7f9f1ff-7e5e-462a-9ac6-f2ff7bc665ad)
 
 
 02/26/2024
