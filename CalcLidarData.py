@@ -1,3 +1,6 @@
+# The code below from the talented henjin0 https://github.com/henjin0   / LIDAR_LD06_python_loder https://github.com/henjin0/LIDAR_LD06_python_loder
+# Used in accordance with licensing 
+
 import binascii
 import math
 
