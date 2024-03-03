@@ -27,10 +27,10 @@ Seeeduino XAIO pinout
 
 
 
-My cat is not pleased with this device.
+My cat lounging around.
 ![cat2](https://github.com/metracy/MeowMister/assets/12073647/ec7ad270-a8b6-4554-b495-eb9b5c591b00)
 
-I will murder you in your sleep.
+"I know where you sleep" - Thomas
 ![cat3](https://github.com/metracy/MeowMister/assets/12073647/b7f9f1ff-7e5e-462a-9ac6-f2ff7bc665ad)
 
 
