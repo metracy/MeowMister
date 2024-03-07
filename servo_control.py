@@ -1,6 +1,9 @@
 import pyfirmata2
 import os
 import time
+import select
+import sys
+
 # /tmp/servo_control is a FIFO that is read to listen to what's being output for the servo to move to that angle
 
 control_path = '/tmp/servo_control'
@@ -8,14 +11,17 @@ control_path = '/tmp/servo_control'
 PORT = pyfirmata2.Arduino.AUTODETECT
 
 board = pyfirmata2.Arduino(PORT)
+firing_2 = board.get_pin('d:6:o')
 servo_5 = board.get_pin('d:5:s')
-firing_6 = board.get_pin('d:6:o')
-i=0
-def fire_pin_6(duration=0.1): # running tests the subject has rapidly aclimated to a line where if crossed he will be under fire
-    """Activates pin 6 for a specified duration."""
-    firing_6.write(duration)  
+global i
+i=1 # single shot testing protocol - WTF system
+
+def fire_pin_2(duration=0.1): # running tests the subject has rapidly aclimated to a line where if crossed he will be under fire
+    """Activates pin 2 for a specified duration."""
+    firing_2.write(duration)  
     time.sleep(duration)  
-    firing_6.write(0) 
+    firing_2.write(0) 
+
 
 while True:
     with open(control_path, 'r') as file:
@@ -23,14 +29,14 @@ while True:
             print('restarting try loop')
             x = 45 # offset the x = 45 to match lidar
             try:
-                angle = int(float(line)*57.2-x)
+                angle = int(float(line)*57.2-x) # convert ~ to degree
                 print(angle)
-                if 0 <= angle <= 180:
+                if 0 <= angle <= 180: # catch
                     print(f"Yes Captain! Moving to {angle+x} Degrees!")
                     servo_5.write(str(angle))
-                    if i == 0:
-                        fire_pin_6(1)
-                        i = 1
+                    if i == 1:
+                        fire_pin_2(1)
+                        i = 0
                 time.sleep(0.1)
             except ValueError:
                 print("Invalid Degrees Captain!")

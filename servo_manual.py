@@ -1,0 +1,48 @@
+import tkinter as tk
+import math
+
+servo_control = '/tmp/servo_control'
+rad = 0.0174533  # rad in one degree
+servo_now = math.pi/2  # Initial servo position in radians.
+
+def on_key_press(event):
+    global servo_now  # Access global variable.
+    # detect key being pressed
+    if event.keysym == 'Left':
+        move_servo('left')
+    elif event.keysym == 'Right':
+        move_servo('right')
+
+def write_to_fifo(angle):
+    # Write angle data to FIFO.
+    try:
+        with open(servo_control, 'w') as fifo:
+            fifo.write(f'{angle}\n')
+            fifo.flush()
+    except Exception as e:
+        print(f"Error writing to FIFO: {e}")
+
+def move_servo(direction):
+    global servo_now  # use the global variable.
+    # reassign servo position based on direction from keyboard.
+    if direction == 'left':
+        servo_now += rad
+    else:
+        servo_now -= rad
+    print(f"moving to {servo_now*57.2+45} degrees")
+    write_to_fifo(servo_now)  # Communicate updated position.
+
+root = tk.Tk()
+root.title("Servo Control Instructions")
+
+# Bind key events.
+root.bind('<Left>', on_key_press)
+root.bind('<Right>', on_key_press)
+
+# Create a label with instructions.
+label_text = "Press Left or Right to move the Servo"
+instructions = tk.Label(root, text=label_text, font=('Helvetica', 12))
+instructions.pack(pady=20)
+
+# Begin main event loop.
+root.mainloop()

@@ -20,11 +20,6 @@
   See file LICENSE.txt for further information on licensing terms.
 
   Last updated January 9, 2019 Alan Yorinks
-
-  Matt Tracy - added Seeed Xaio M0 to boards.h from https://github.com/firmata/arduino/issues/475
-  from solution provided by user vicckkky
-  Use this boards.h and replace the old in FirmataExpress sketch before compiling
-
 */
 
 #ifndef Firmata_Boards_h
@@ -189,6 +184,30 @@ writePort(port, value, bitmask):  Write an 8 bit port.
 #define PIN_TO_DHT(p)           PIN_TO_DIGITAL(p)
 #define ARDUINO_PINOUT_OPTIMIZE 1
 
+// Arduino UNO R4 Minima and Wifi
+// The pinout is the same as for the classical UNO R3
+#elif defined(ARDUINO_UNOR4_MINIMA) || defined(ARDUINO_UNOR4_WIFI)
+#if defined(NUM_ANALOG_INPUTS) && NUM_ANALOG_INPUTS == 6
+#define TOTAL_ANALOG_PINS       6
+#define TOTAL_PINS              20 // 14 digital + 6 analog
+#else
+#define TOTAL_ANALOG_PINS       8
+#define TOTAL_PINS              22 // 14 digital + 8 analog
+#endif
+// These have conflicting(?) definitions in the core for this CPU
+#undef IS_PIN_PWM
+#undef IS_PIN_ANALOG
+#define VERSION_BLINK_PIN       13
+#define IS_PIN_DIGITAL(p)       ((p) >= 2 && (p) <= 19)
+#define IS_PIN_ANALOG(p)        ((p) >= 14 && (p) < 14 + TOTAL_ANALOG_PINS)
+#define IS_PIN_PWM(p)           digitalPinHasPWM(p)
+#define IS_PIN_SERVO(p)         (IS_PIN_DIGITAL(p) && (p) - 2 < MAX_SERVOS)
+#define IS_PIN_I2C(p)           ((p) == 18 || (p) == 19)
+#define IS_PIN_SPI(p)           ((p) == SS || (p) == MOSI || (p) == MISO || (p) == SCK)
+#define PIN_TO_DIGITAL(p)       (p)
+#define PIN_TO_ANALOG(p)        ((p) - 14)
+#define PIN_TO_PWM(p)           PIN_TO_DIGITAL(p)
+#define PIN_TO_SERVO(p)         ((p) - 2)
 
 // Wiring (and board)
 #elif defined(WIRING)
@@ -419,6 +438,26 @@ writePort(port, value, bitmask):  Write an 8 bit port.
 #define PIN_TO_TONE(p)          PIN_TO_DIGITAL(p)
 #define PIN_TO_SONAR(p)         PIN_TO_DIGITAL(p)
 #define PIN_TO_DHT(p)           PIN_TO_DIGITAL(p)
+
+// Seeduino XIAO
+
+#elif defined(SEEED_XIAO_M0)
+#define TOTAL_ANALOG_PINS 11
+#define TOTAL_PINS 17 // 11 digital / analog + 1 DAC output + 2 i2c + 3 spi
+#define VERSION_BLINK_PIN LED_BUILTIN
+#define PIN_SERIAL1_RX 7
+#define PIN_SERIAL1_TX 6
+#define IS_PIN_DIGITAL(p) ((p) >= 0 && (p) <= 10)
+#define IS_PIN_ANALOG(p) ((p) >= 0 && (p) <= 10)
+#define IS_PIN_PWM(p) ((p) >= 1 && (p) <= 10)
+#define IS_PIN_SERVO(p) (IS_PIN_DIGITAL(p) && (p) < MAX_SERVOS) // deprecated since v2.4
+#define IS_PIN_I2C(p) ((p) == 4 || (p) == 5) // SDA = 4, SCL = 5
+#define IS_PIN_SPI(p) ((p) == 4 || (p) == 10 || (p) == 9 || (p) == 8) // SS = A4
+#define IS_PIN_SERIAL(p) ((p) == 6 || (p) == 7)
+#define PIN_TO_DIGITAL(p) (p)
+#define PIN_TO_ANALOG(p) (p)
+#define PIN_TO_PWM(p) PIN_TO_DIGITAL(p)
+#define PIN_TO_SERVO(p) (p) // deprecated since v2.4
 
 
 // Teensy 1.0

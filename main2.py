@@ -53,7 +53,7 @@ def radius_calc(angle):
         R = 14.3 / math.sin(angle)
         return R
     elif 128 < math.degrees(angle) <= 177:
-        R = -10.3 / math.cos(angle)
+        R = -10.3 / math.cos(angle) # flip negative sign, 
         return R
     else:
         R = 3
@@ -69,7 +69,7 @@ while True:
     loopFlag = True
     flag2c = False
 
-    if i % 40 == 39: # every 39th iteration engage
+    if i % 40 == 39: # every 40th iteration engage
         # plot has to be rotated based on the location of the room, each data point no longer needs to be rotated
         rotated_angles = [(angle_rotation - angle) % (2 * math.pi) for angle in angles]
 
@@ -104,7 +104,7 @@ while True:
         distances.clear()
         i = 0
 
-    while loopFlag:
+    while loopFlag: # read serial data from USB0
         b = ser.read()
         tmpInt = int.from_bytes(b, 'big')
 
