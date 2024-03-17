@@ -3,6 +3,8 @@
 Had major issues with DigitalWrite with the firmataexpress module flashed to the Xiao.  I added a separate Arduino Uno Rev3 (still mislabeled as UnoR4) that has Standard Firmata flashed to it, this fixed the issue with not being able to write out to the SSR and solenoid.
 
 Added TGZ gamepad support by using it to control the Turret manually, pressing A to move pin8 on UnoR3 to HIGH for 0.25 seconds, triggering the mechanism to squirt water.
+https://github.com/metracy/MeowMister/assets/12073647/e70e05f1-d898-4f23-874d-e59dda936ae2
+
 
 
 02/27/2024
@@ -15,7 +17,7 @@ Lidar Plot running main2.py
 ![animated](https://github.com/metracy/MeowMister/assets/12073647/aa362e29-e5b7-47d3-bacd-be8ba3df3c56)
 
 Water Turret
-![turret](https://github.com/metracy/MeowMister/assets/12073647/8b430e88-5582-4548-a120-949d7dcd96b8)
+![turretCamera](https://github.com/metracy/MeowMister/assets/12073647/73b11c8f-828e-42b4-9002-b64f7696c5f9)
 
 Circuit arrangement.
 ![circuit_diagram](https://github.com/metracy/MeowMister/assets/12073647/4ced766c-6f89-4e9b-967f-524543f69b9a)
