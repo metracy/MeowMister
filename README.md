@@ -3,7 +3,7 @@
 Had major issues with DigitalWrite with the firmataexpress module flashed to the Xiao.  I added a separate Arduino Uno Rev3 (still mislabeled as UnoR4) that has Standard Firmata flashed to it, this fixed the issue with not being able to write out to the SSR and solenoid.
 
 Added TGZ gamepad support by using it to control the Turret manually, pressing A to move pin8 on UnoR3 to HIGH for 0.25 seconds, triggering the mechanism to squirt water.
-https://github.com/metracy/MeowMister/assets/12073647/e70e05f1-d898-4f23-874d-e59dda936ae2
+
 
 
 
