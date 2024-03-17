@@ -11,14 +11,13 @@ control_path = '/tmp/servo_control'
 PORT = pyfirmata2.Arduino.AUTODETECT
 
 board = pyfirmata2.Arduino(PORT)
-firing_2 = board.get_pin('d:6:o')
 servo_5 = board.get_pin('d:5:s')
 global i
 i=1 # single shot testing protocol - WTF system
 
 def fire_pin_2(duration=0.1): # running tests the subject has rapidly aclimated to a line where if crossed he will be under fire
     """Activates pin 2 for a specified duration."""
-    firing_2.write(duration)  
+    firing_2.write(1)  
     time.sleep(duration)  
     firing_2.write(0) 
 
@@ -34,9 +33,9 @@ while True:
                 if 0 <= angle <= 180: # catch
                     print(f"Yes Captain! Moving to {angle+x} Degrees!")
                     servo_5.write(str(angle))
-                    if i == 1:
-                        fire_pin_2(1)
-                        i = 0
+                    #if i == 1:
+                    #   fire_pin_2(1)
+                    #   i = 0
                 time.sleep(0.1)
             except ValueError:
                 print("Invalid Degrees Captain!")
