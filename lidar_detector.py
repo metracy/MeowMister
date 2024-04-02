@@ -5,7 +5,7 @@ import math
 import threading
 
 servo_control = '/tmp/servo_control'
-#file = open(servo_control, 'w')
+file = open(servo_control, 'w')
 
 fig = plt.figure(figsize=(8,8))
 ax = fig.add_subplot(111, projection='polar')
@@ -33,6 +33,12 @@ angle_in_radians = math.radians(angle_to_display)
 radius_for_text = 3.5
 global angle2
 angle2 = angle
+
+
+UNO_R4 = '/dev/ttyACM0'
+XIAO = '/dev/ttyACM1'
+
+
 
 # Function to write to FIFO in a separate thread
 def write_to_fifo(angle):
