@@ -3,10 +3,13 @@ import time
 import math
 
 # /tmp/servo_control is a FIFO that is read to listen to what's being output for the servo to move to that angle
-
+# TODO okay this is a linux specific approach that I don't think will work on windows.
+# investigating how to handle moving information around within an OOP approach
 servo = '/tmp/servo_control'
 
 # Seeeduino XIAO Location
+#TODO Figure out the com configuration for XIAO on a windows based system. Install necessary drivers to connect to XIAO
+# XIAO = 'COM4' ???
 XIAO = '/dev/ttyACM1'
 
 board = pyfirmata2.Arduino(XIAO)

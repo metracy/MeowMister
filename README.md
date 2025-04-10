@@ -1,4 +1,7 @@
 # MeowMister
+04/09/2024
+Adapting this program to work on windows. Changing the methodology of communication with XAIO board and changing python libraries that function better within windows.
+
 03/17/2024
 Had major issues with DigitalWrite with the firmataexpress module flashed to the Xiao.  I added a separate Arduino Uno Rev3 (still mislabeled as UnoR4) that has Standard Firmata flashed to it, this fixed the issue with not being able to write out to the SSR and solenoid.
 
